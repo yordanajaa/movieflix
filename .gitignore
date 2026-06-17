@@ -41,13 +41,8 @@ Thumbs.db
 *.log
 
 # Data & Cache
-*.csv
 ratings.csv
-movies.csv
-links.csv
 .cache/
-*.pkl
-*.pickle
 
 # Jupyter
 .ipynb_checkpoints/
