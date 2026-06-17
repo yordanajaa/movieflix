@@ -789,14 +789,13 @@ with tab1:
         if recs_content.empty:
             st.info("Tidak ada rekomendasi content-based yang ditemukan.")
         else:
-            # Tampilkan metrik presisi di UI
+            # Tampilkan metrik kemiripan di UI
             cb_metrics = recommender_metrics.get_recommendation_metrics(recs_content, movies_df, "Content-Based")
             st.markdown(f"""
             <div style='background: rgba(229, 9, 20, 0.1); border-left: 4px solid #E50914; padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem;'>
-                <span style='color: #fff; font-weight: bold; margin-right: 15px;'>🧪 Uji Presisi Model:</span>
-                <span style='color: #4ade80; font-weight: bold;'>Precision@10: {cb_metrics['precision@10']*100:.1f}%</span> | 
-                <span style='color: #fbbf24; font-weight: bold;'>Diversity Score: {cb_metrics['diversity_score']:.2f}</span> | 
-                <span style='color: #60a5fa; font-weight: bold;'>Avg Quality Rating: {cb_metrics['avg_rating']:.1f}⭐</span>
+                <span style='color: #fff; font-weight: bold; margin-right: 15px;'>📊 Analisis Rekomendasi:</span>
+                <span style='color: #4ade80; font-weight: bold;'>Rata-rata Kemiripan: {cb_metrics['avg_similarity']*100:.1f}%</span> | 
+                <span style='color: #fbbf24; font-weight: bold;'>Rata-rata Rating: {cb_metrics['avg_rating']:.1f}⭐</span>
             </div>
             """, unsafe_allow_html=True)
             
@@ -907,14 +906,13 @@ with tab2:
             if recs_collab.empty:
                 st.info("Tidak ada rekomendasi collaborative yang ditemukan.")
             else:
-                # Tampilkan metrik presisi di UI
+                # Tampilkan metrik kemiripan di UI
                 cf_metrics = recommender_metrics.get_recommendation_metrics(recs_collab, movies_df, "Collaborative")
                 st.markdown(f"""
                 <div style='background: rgba(229, 9, 20, 0.1); border-left: 4px solid #E50914; padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem;'>
-                    <span style='color: #fff; font-weight: bold; margin-right: 15px;'>🧪 Uji Presisi Model:</span>
-                    <span style='color: #4ade80; font-weight: bold;'>Precision@10: {cf_metrics['precision@10']*100:.1f}%</span> | 
-                    <span style='color: #fbbf24; font-weight: bold;'>Diversity Score: {cf_metrics['diversity_score']:.2f}</span> | 
-                    <span style='color: #60a5fa; font-weight: bold;'>Avg Quality Rating: {cf_metrics['avg_rating']:.1f}⭐</span>
+                    <span style='color: #fff; font-weight: bold; margin-right: 15px;'>📊 Analisis Rekomendasi:</span>
+                    <span style='color: #4ade80; font-weight: bold;'>Rata-rata Kemiripan: {cf_metrics['avg_similarity']*100:.1f}%</span> | 
+                    <span style='color: #fbbf24; font-weight: bold;'>Rata-rata Rating: {cf_metrics['avg_rating']:.1f}⭐</span>
                 </div>
                 """, unsafe_allow_html=True)
 
